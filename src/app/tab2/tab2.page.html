@@ -1,0 +1,133 @@
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      Your quests
+    </ion-list-header>
+
+    <ion-item button="true" routerLink="/tabs/quest/55">
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/arucas2.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>The old town</h2>
+        <h3>Arucas (Spain)</h3>
+      </ion-label>
+      <ion-badge color="success">100%</ion-badge>
+    </ion-item>
+
+    <ion-item button="true" routerLink="/tabs/quest/95">
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/telde1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>My dear homeland</h2>
+        <h3>Telde (Spain)</h3>
+      </ion-label>
+      <ion-badge color="danger">10%</ion-badge>
+    </ion-item>
+
+    <ion-item button="true" routerLink="/tabs/quest/105">
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/laspalmas1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Cosmopolitan city</h2>
+        <h3>Las Palmas (Spain)</h3>
+      </ion-label>
+      <ion-badge color="medium">0%</ion-badge>
+    </ion-item>
+
+    <ion-item button="true" routerLink="/tabs/quest/145">
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/agaete1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Finger of God</h2>
+        <h3>Agaete (Spain)</h3>
+      </ion-label>
+      <ion-badge color="medium">0%</ion-badge>
+    </ion-item>
+
+    <ion-item button="true" routerLink="/tabs/quest/175">
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/tejeda1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>El Roque Nublo</h2>
+        <h3>Tejeda (Spain)</h3>
+      </ion-label>
+      <ion-badge color="medium">0%</ion-badge>
+    </ion-item>
+
+    <ion-item button="true" routerLink="/tabs/quest/200">
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/teror1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>The jewels of the virgin</h2>
+        <h3>Teror (Spain)</h3>
+      </ion-label>
+      <ion-badge color="medium">0%</ion-badge>
+    </ion-item>
+    
+  </ion-list>
+
+
+<!-- Cargamos los usuarios de la BD local -->
+<!-- Si se pulsa sobre uno de ellos se elimina -->
+  <ion-list>
+    <ion-list-header>
+      Quests from local database
+    </ion-list-header>
+    <ion-item button="true" *ngFor="let quest of loadedQuests; let i = index" (click)="deleteQuest(i)">
+
+      <ion-avatar slot="start">
+        <img src="../../assets/imgs/teror1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ quest.id }}</h2>
+        <h3>{{ quest.nombre }}</h3>
+      </ion-label>
+      <ion-badge color="medium">0%</ion-badge>
+
+    </ion-item>
+  </ion-list> 
+
+
+<!-- Cargamos los datos de un JSON online -->
+  <ion-list>
+    <ion-list-header>
+      Data from online JSON
+    </ion-list-header>
+    <ion-item *ngFor = "let usuario of onlineQuests">
+      <ion-avatar slot = "start">
+        <img [src]="usuario.picture.medium">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ usuario.name.first }}</h2>
+        <p>{{ usuario.email }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- Cargamos los datos de Firebase -->
+  <ion-list>
+    <ion-list-header>
+      Data from Firebase
+    </ion-list-header>
+    <ion-item *ngFor = "let quest of loadedFirebaseQuests">
+      <ion-avatar slot = "start">
+        <img [src]="quest.picture">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ quest.title }}</h2>
+        <p>{{ quest.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

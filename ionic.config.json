@@ -1,0 +1,7 @@
+{
+  "name": "tourQuest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
